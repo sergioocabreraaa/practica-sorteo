@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="loteria.css">
+    </head>
+    <body>
+<div class="contenido">
+            <h1>LOTERIA DE NAVIDAD</h1>
+            <h2>Numero de boleto comprado</h2>
+
+        <form class="form1" action="boletofecha.php" method="post">
+            <p>Boleto: <input type="text" name="boleto" /></p>
+            <p>Fecha: <input type="date" name="fecha" /></p>
+            <center><button type="submit">Enviar</button></center>
+            <br>
+           </form>
+   
+           <h2>Boleto Ganador</h2>
+        <form class="form2" action="boletoganador.php" method="post">
+            <p>Boleto: <input type="text" name="boleto" /></p>
+            <p>Fecha: <input type="date" name="fecha" /></p>
+           <center><button type="submit">Enviar</button></center> 
+           </form>
+
+
+           <form class="form2" action="premios.php" method="post">
+               <br><br><br>
+            <button class="botonpremio" type="submit">Ver Premios</button>
+           </form>
+</div>
+    </body>
+</html>

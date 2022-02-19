@@ -1,0 +1,29 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;  
+    background-image: url("imagen.jpg");
+}
+
+.botonpremio{
+
+    padding: 14px 40px;
+    border-radius: 12px;
+    font-size: 16px;
+    background-color: rgb(255, 208, 0);
+
+}
+
+.contenido{
+    background-color: rgb(224, 224, 224);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    padding: 40px;
+    
+}
