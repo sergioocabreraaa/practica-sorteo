@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-02-2022 a las 14:06:29
+-- Tiempo de generación: 21-02-2022 a las 11:06:14
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.4.26
 
@@ -32,17 +32,6 @@ CREATE TABLE `almacenarboleto` (
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `almacenarboleto`
---
-
-INSERT INTO `almacenarboleto` (`boleto`, `fecha`) VALUES
-(2134, '2002-12-12'),
-(6556, '6545-04-05'),
-(657895, '1212-12-12'),
-(6578934, '1212-12-12'),
-(657893434, '1212-12-12');
-
 -- --------------------------------------------------------
 
 --
@@ -53,14 +42,6 @@ CREATE TABLE `boletoganador` (
   `boleto` int(11) NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `boletoganador`
---
-
-INSERT INTO `boletoganador` (`boleto`, `fecha`) VALUES
-(6556, '0000-00-00'),
-(65562, '1111-12-12');
 
 -- --------------------------------------------------------
 
