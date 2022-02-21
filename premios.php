@@ -3,8 +3,6 @@ include 'conexion.php';
 	
 $pdo = new Conexion();
 
-
-
 	// Ejecutamos una sentencia SQL
 	
 	// consulta SQL que queremos ejecutar
