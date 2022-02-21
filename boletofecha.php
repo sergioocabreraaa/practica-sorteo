@@ -17,8 +17,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         header("HTTP/1.1 200 Ok");
         echo "Se ha añadido tu boleto a la base de datos.<br> Boleto numero: ";
         echo json_encode($idPost);
+        
         exit;
     }
 }
-    
+
+
     ?>

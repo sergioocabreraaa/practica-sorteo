@@ -15,6 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     if($idPost)
     {
         header("HTTP/1.1 200 Ok");
+        echo "Se ha añadido el boleto ganador a la base de datos.<br> Boleto numero: ";    
         echo json_encode($idPost);
         exit;
     }
