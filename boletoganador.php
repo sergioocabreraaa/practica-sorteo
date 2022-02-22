@@ -1,7 +1,6 @@
 
 <?php
     include 'conexion.php';	
-    include 'premios.php';
 	$pdo = new Conexion();
 
 //Insertar registro
