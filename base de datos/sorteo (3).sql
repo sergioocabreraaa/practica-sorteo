@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-02-2022 a las 11:06:14
+-- Tiempo de generación: 22-02-2022 a las 10:43:00
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 7.4.26
 
@@ -51,7 +51,7 @@ CREATE TABLE `boletoganador` (
 
 CREATE TABLE `premios` (
   `fecha` date NOT NULL,
-  `boletopremio` int(11) NOT NULL,
+  `boleto` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -75,29 +75,7 @@ ALTER TABLE `boletoganador`
 -- Indices de la tabla `premios`
 --
 ALTER TABLE `premios`
-  ADD PRIMARY KEY (`boletopremio`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `almacenarboleto`
---
-ALTER TABLE `almacenarboleto`
-  MODIFY `boleto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=657893435;
-
---
--- AUTO_INCREMENT de la tabla `boletoganador`
---
-ALTER TABLE `boletoganador`
-  MODIFY `boleto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65563;
-
---
--- AUTO_INCREMENT de la tabla `premios`
---
-ALTER TABLE `premios`
-  MODIFY `boletopremio` int(11) NOT NULL AUTO_INCREMENT;
+  ADD PRIMARY KEY (`boleto`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
