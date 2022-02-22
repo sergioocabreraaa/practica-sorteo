@@ -3,19 +3,30 @@ include 'conexion.php';
 $pdo1 = new Conexion();
 
 
+$sql = $pdo1->prepare("SELECT almacenarboleto.fecha FROM almacenarboleto INNER JOIN boletoganador ON almacenarboleto.fecha = boletoganador.fecha");
+$sql->execute();
+$sql->setFetchMode(PDO::FETCH_ASSOC);
+$resultado = $sql->fetchAll();
+	
+echo "<br>Mostramos la información de los resultados: <br><br>";
 
-
-
-
-
+// Mostrar resultados
+foreach ($resultado as $row) {
+    echo "- <b>" . $row["fecha"] . " </b><br>"; // " . $row["boleto"] . " " . $row["cantidad"] . "
+}
 
 
 
 
 
 $boletocomprado= 434;
-$boletoganador= 435;
+$boletoganador= 434;
+
+//Llamamos al metodo
 calcularPremio($boletocomprado, $boletoganador);
+
+
+//Funcion para calcular la cantidad del premio en cada boleto
 function calcularPremio($boletocomprado, $boletoganador){
 
     if(substr($boletocomprado, -5) == $boletoganador){
