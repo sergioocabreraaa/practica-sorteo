@@ -1,6 +1,6 @@
+
 <?php
-include 'conexion.php';
-	
+    include 'conexion.php';	
 	$pdo = new Conexion();
 
 //Insertar registro
@@ -10,15 +10,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':boleto', $_POST['boleto']);
     $stmt->bindValue(':fecha', $_POST['fecha']);
-    $stmt->execute();
-    $idPost = $pdo->lastInsertId(); 
-    if($idPost)
+    $prueba = $stmt->execute();
+    if($prueba)
     {
         header("HTTP/1.1 200 Ok");
-        echo "Se ha añadido el boleto ganador a la base de datos.<br> Boleto numero: ";    
-        echo json_encode($idPost);
+        echo "Se ha insertado el boleto ganador correctamente";
         exit;
+    }else{
+
+        echo "No se ha insertado el boleto ganador correctamente";
+
     }
 }
     
-    ?>
+    ?>   
+
+
