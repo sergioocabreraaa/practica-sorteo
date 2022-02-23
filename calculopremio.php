@@ -40,7 +40,10 @@ $pdo = new Conexion();
 			echo $p;
 		}
 
+		return $p;
+
 	}
+	
 	
 
 

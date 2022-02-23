@@ -1,26 +1,57 @@
 <?php
 include 'conexion.php';	
+	
 $pdo1 = new Conexion();
 
+// Transacción
 
+//Boletos iguales
 $sql = $pdo1->prepare("SELECT almacenarboleto.fecha FROM almacenarboleto INNER JOIN boletoganador ON almacenarboleto.fecha = boletoganador.fecha");
 $sql->execute();
 $sql->setFetchMode(PDO::FETCH_ASSOC);
 $resultado = $sql->fetchAll();
+
+$sql1 = $pdo1->prepare("SELECT * FROM premios");
+$sql1->execute();
+$sql1->setFetchMode(PDO::FETCH_ASSOC);
+$resultado1 = $sql1->fetchAll();
 	
 echo "<br>Mostramos la información de los resultados: <br><br>";
 
 // Mostrar resultados
-foreach ($resultado as $row) {
-    echo "- <b>" . $row["fecha"] . " </b><br>"; // " . $row["boleto"] . " " . $row["cantidad"] . "
+ foreach ($resultado1 as $row) {
+    $boletocomprado =  $row["boleto"];
+    $boletoganador = $row["boleto"];
+    $p = calcularPremio($boletocomprado, $boletoganador);
+    $sql2 = $pdo1->prepare("UPDATE `premios` SET `cantidad` = '" . $p . "' WHERE `premios`.`boleto` = ". $boletoganador ."");
+    $sql2->execute();
+    $sql2->setFetchMode(PDO::FETCH_ASSOC);
+    $resultado2 = $sql2->fetchAll();
+
+
 }
 
 
+// insert
+// update premio en tabla premios 
 
+// $row["fecha"] . " </b><br>"; // " . $row["boleto"] . " " . $row["cantidad"] . "
+//Mostrar la tabla
+/*
+$sql = $pdo1->prepare("SELECT * FROM premios= boletos;");
+$sql->execute();
+$sql->setFetchMode(PDO::FETCH_ASSOC);
+$resultado = $sql->fetchAll();
+	*//*
+echo "<br>Mostramos la información de los resultados: <br><br>";
 
+// Mostrar resultados
+foreach ($resultado1 as $row) {
 
-$boletocomprado= 434;
-$boletoganador= 434;
+    echo "- <b>" . $row["fecha"] . " " . $row["boleto"] . " " . $row["cantidad"] . " </b><br>"; 
+
+}
+*/
 
 //Llamamos al metodo
 calcularPremio($boletocomprado, $boletoganador);
