@@ -10,6 +10,7 @@ $sql->execute();
 $sql->setFetchMode(PDO::FETCH_ASSOC);
 $resultado = $sql->fetchAll();
 
+
 $sql1 = $pdo1->prepare("SELECT * FROM premios");
 $sql1->execute();
 $sql1->setFetchMode(PDO::FETCH_ASSOC);
@@ -23,6 +24,21 @@ foreach ($resultado1 as $row) {
     echo "- <b>" . $row["fecha"] . " " . $row["boleto"] . " " . $row["cantidad"] . " </b><br>"; 
 
 }
+$sql3 = $pdo1->prepare("SELECT boleto_comprado.num_boletoComprado, boleto_premiado.num_boletoPremiado FROM boleto_comprado INNER JOIN boleto_premiado ON boleto_comprado.fecha_boletoComprado = boleto_premiado.fecha_boletoPremiado");
+$sql3->execute();
+$sql3->setFetchMode(PDO::FETCH_ASSOC);
+$resultado3 = $sql3->fetchAll();
+
+foreach ($resultado3 as $row) {
+    $boletoComprado =  $row["boleto"];
+    $boletoGanador = $row["boleto"];
+    $p = calcularPremiado($boletoComprado, $boletoPremiado);
+    $actualizar_premios = $pdoPremios->prepare("UPDATE premios SET valor_premio = " . $p . " WHERE num_boleto = ". $boletoPremiado ."");
+    $actualizar_premios->execute();
+    $actualizar_premios->setFetchMode(PDO::FETCH_ASSOC);
+    $resultado2 = $actualizar_premios->fetchAll();
+}
+
 
 
 echo "<br>Mostramos la información de los resultados: <br><br>";
@@ -34,11 +50,11 @@ echo "<br>Mostramos la información de los resultados: <br><br>";
     $p = calcularPremio($boletoComprado, $boletoGanador);
     //No funciona el update
     
+    
     $sql2 = $pdo1->prepare("UPDATE `premios` SET `cantidad` = " . $p . " WHERE `boleto` = ". $boletoGanador ."");
     $sql2->execute();
     $sql2->setFetchMode(PDO::FETCH_ASSOC);
     $resultado2 = $sql2->fetchAll();
-
 }
 
 
