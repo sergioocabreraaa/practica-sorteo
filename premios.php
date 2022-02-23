@@ -1,6 +1,5 @@
 <?php
 include 'conexion.php';	
-	
 $pdo1 = new Conexion();
 
 // Transacción
@@ -19,82 +18,78 @@ $resultado1 = $sql1->fetchAll();
 echo "<br>Mostramos la información de los resultados: <br><br>";
 
 // Mostrar resultados
- foreach ($resultado1 as $row) {
-    $boletocomprado =  $row["boleto"];
-    $boletoganador = $row["boleto"];
-    $p = calcularPremio($boletocomprado, $boletoganador);
-    $sql2 = $pdo1->prepare("UPDATE `premios` SET `cantidad` = '" . $p . "' WHERE `premios`.`boleto` = ". $boletoganador ."");
-    $sql2->execute();
-    $sql2->setFetchMode(PDO::FETCH_ASSOC);
-    $resultado2 = $sql2->fetchAll();
-
-
-}
-
-
-// insert
-// update premio en tabla premios 
-
-// $row["fecha"] . " </b><br>"; // " . $row["boleto"] . " " . $row["cantidad"] . "
-//Mostrar la tabla
-/*
-$sql = $pdo1->prepare("SELECT * FROM premios= boletos;");
-$sql->execute();
-$sql->setFetchMode(PDO::FETCH_ASSOC);
-$resultado = $sql->fetchAll();
-	*//*
-echo "<br>Mostramos la información de los resultados: <br><br>";
-
-// Mostrar resultados
 foreach ($resultado1 as $row) {
 
     echo "- <b>" . $row["fecha"] . " " . $row["boleto"] . " " . $row["cantidad"] . " </b><br>"; 
 
 }
-*/
 
-//Llamamos al metodo
-calcularPremio($boletocomprado, $boletoganador);
+
+echo "<br>Mostramos la información de los resultados: <br><br>";
+
+// Mostrar resultados
+ foreach ($resultado1 as $row) {
+    $boletoComprado =  $row["boleto"];
+    $boletoGanador = $row["boleto"];
+    $p = calcularPremio($boletoComprado, $boletoGanador);
+    //No funciona el update
+    
+    $sql2 = $pdo1->prepare("UPDATE `premios` SET `cantidad` = " . $p . " WHERE `boleto` = ". $boletoGanador ."");
+    $sql2->execute();
+    $sql2->setFetchMode(PDO::FETCH_ASSOC);
+    $resultado2 = $sql2->fetchAll();
+
+}
+
+
+
+
 
 
 //Funcion para calcular la cantidad del premio en cada boleto
-function calcularPremio($boletocomprado, $boletoganador){
+function calcularPremio($boletoComprado, $boletoGanador){
 
-    if(substr($boletocomprado, -5) == $boletoganador){
+    if(substr($boletoComprado, -5) == $boletoGanador){
         $p=600000;
         echo $p;
+        
 
 
-    }elseif(substr($boletocomprado, -5) == $boletoganador + 1){
+    }elseif(substr($boletoComprado, -5) == $boletoGanador + 1){
     
         $p=10000;
         echo $p;
+        
 
-    }elseif(substr($boletocomprado, -5) == $boletoganador - 1){
+    }elseif(substr($boletoComprado, -5) == $boletoGanador - 1){
 
         $p=10000;
         echo $p;
+        
 
-    }elseif(substr($boletocomprado, 0, -3) == substr($boletoganador, 0, -3)){
-
-        $p=300;
-        echo $p;
-
-    }elseif(substr($boletocomprado, -3) == substr($boletoganador, -3)){
+    }elseif(substr($boletoComprado, 0, -3) == substr($boletoGanador, 0, -3)){
 
         $p=300;
         echo $p;
+        
+    }elseif(substr($boletoComprado, -3) == substr($boletoGanador, -3)){
+
+        $p=300;
+        echo $p;
+        
 
 
-    }elseif(substr($boletocomprado, -2) == substr($boletoganador, -2)){
+    }elseif(substr($boletoComprado, -2) == substr($boletoGanador, -2)){
         $p=120;
         echo $p;
+        
 
-    }elseif(substr($boletocomprado, -1) == substr($boletoganador, -1)){
+    }elseif(substr($boletoComprado, -1) == substr($boletoGanador, -1)){
         $p=60;
         echo $p;
+        
     }
-
+    return $p;
 }
 
 
