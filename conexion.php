@@ -1,5 +1,5 @@
 <?php
-
+//Clase con la conexion a la bdd
 	class Conexion extends PDO
 	{
 		private $hostBd = 'localhost';
