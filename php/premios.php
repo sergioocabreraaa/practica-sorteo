@@ -3,7 +3,7 @@
     <!--Titulo-->  
     <title>Premios</title>
     <!--Estilo Css-->
-    <link rel="stylesheet" href="premios.css">
+    <link rel="stylesheet" href="../css/premios.css">
     </head>
 <body>
 
@@ -53,7 +53,7 @@
           
 
     }
-    echo"<br><br><a href='boletofecha.html'><button>Volver al menu</button></a>";
+    echo"<br><br><a href='../boletofecha.html'><button>Volver al menu</button></a>";
 
 
     //Funcion para calcular la cantidad del premio en cada boleto

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-02-2022 a las 10:43:00
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 7.4.26
+-- Tiempo de generación: 23-02-2022 a las 17:19:22
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,18 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `almacenarboleto` (
-  `boleto` int(11) NOT NULL,
+  `boletoComprado` int(11) NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `boletoganador`
+-- Estructura de tabla para la tabla `almacenarganador`
 --
 
-CREATE TABLE `boletoganador` (
-  `boleto` int(11) NOT NULL,
+CREATE TABLE `almacenarganador` (
+  `boletoGanador` int(11) NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -63,13 +63,13 @@ CREATE TABLE `premios` (
 -- Indices de la tabla `almacenarboleto`
 --
 ALTER TABLE `almacenarboleto`
-  ADD PRIMARY KEY (`boleto`);
+  ADD PRIMARY KEY (`boletoComprado`);
 
 --
--- Indices de la tabla `boletoganador`
+-- Indices de la tabla `almacenarganador`
 --
-ALTER TABLE `boletoganador`
-  ADD PRIMARY KEY (`boleto`);
+ALTER TABLE `almacenarganador`
+  ADD PRIMARY KEY (`boletoGanador`);
 
 --
 -- Indices de la tabla `premios`

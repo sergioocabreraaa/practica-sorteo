@@ -3,14 +3,14 @@
         <!--Titulo-->  
         <title>Sorteo Navidad</title>
         <!--Estilo Css-->
-        <link rel="stylesheet" href="loteria.css">
+        <link rel="stylesheet" href="css/loteria.css">
     </head>
     <body>
 <div class="contenido">
             <h1>LOTERIA DE NAVIDAD</h1>
             <h2>Numero de boleto comprado</h2>
         <!--Formulario para almacenar el boleto comprado-->
-        <form class="form1" action="almacenarboleto.php" method="post">
+        <form class="form1" action="php/almacenarboleto.php" method="post">
             <p>Boleto: <input type="text" name="boleto" required/></p>
             <p>Fecha: <input type="date" name="fecha" required/></p>
             <center><button type="submit">Enviar</button></center>
@@ -19,14 +19,14 @@
    
            <h2>Boleto Ganador</h2>
         <!--Formulario para almacenar el boleto ganador o premiado-->
-        <form class="form2" action="boletoganador.php" method="post">
+        <form class="form2" action="php/boletoganador.php" method="post">
             <p>Boleto: <input type="text" name="boleto" required/></p>
             <p>Fecha: <input type="date" name="fecha" required/></p>
            <center><button type="submit">Enviar</button></center> 
            </form>
 
 
-        <form class="form2" action="premios.php" method="GET">
+        <form class="form2" action="php/premios.php" method="GET">
         <br><br><br>
         <!--Boton para ver los premios-->
         <button class="botonpremio" type="submit">Ver Premios</button>

@@ -1,7 +1,7 @@
 <html>
     <head>
     <title>¡Enviado!</title>
-    <link rel="stylesheet" href="php.css">
+    <link rel="stylesheet" href="../css/php.css">
     </head>
     <body>
         
@@ -30,7 +30,7 @@
             {
                 header("HTTP/1.1 200 Ok");
                 echo"Se ha insertado el boleto correctamente";
-                echo"<br><br><a href='boletofecha.html'><button>Volver al menu</button></a>";
+                echo"<br><br><a href='../boletofecha.html'><button>Volver al menu</button></a>";
                 exit;
             }else{
 
