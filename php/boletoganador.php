@@ -9,9 +9,7 @@
     </head>
     <body>
 
-    <div class="introducir">
 
-    </div>
         <?php
         //Conexion a la bdd
         include 'conexion.php';	
