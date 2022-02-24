@@ -2,6 +2,8 @@
     <head>
     <title>¡Enviado!</title>
     <link rel="stylesheet" href="../css/php.css">
+    <!-- Etiqueta para ver Ñ/accentos -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     </head>
     <body>
         
