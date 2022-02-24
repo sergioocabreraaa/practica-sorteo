@@ -13,10 +13,16 @@
     //Conexion a la base de datos
     include 'conexion.php';
     //Variable para la conexion	
-    $pdo1 = new Conexion();
+    $pdo = new Conexion();
+
+            //Select para sacar las fechas que son iguales en el sorteo
+            $sql = $pdo->prepare("SELECT almacenarboleto.fecha FROM almacenarboleto INNER JOIN almacenarganador ON almacenarboleto.fecha = almacenarganador.fecha");
+            $sql->execute();
+            $sql->setFetchMode(PDO::FETCH_ASSOC);
+            $resultado = $sql->fetchAll();
 
             //Select para sacar el boleto comprado con el boleto ganador correspondiente
-            $sql3 = $pdo1->prepare("SELECT almacenarboleto.boletoComprado, almacenarganador.boletoGanador FROM almacenarboleto INNER JOIN almacenarganador ON almacenarboleto.fecha = almacenarganador.fecha");
+            $sql3 = $pdo->prepare("SELECT almacenarboleto.boletoComprado, almacenarganador.boletoGanador FROM almacenarboleto INNER JOIN almacenarganador ON almacenarboleto.fecha = almacenarganador.fecha");
             $sql3->execute();
             $sql3->setFetchMode(PDO::FETCH_ASSOC);
             $resultado3 = $sql3->fetchAll();
@@ -26,21 +32,16 @@
             $boletoComprado =  $row["boletoComprado"];
             $boletoGanador = $row["boletoGanador"];
             $dinero = calcularPremio($boletoComprado, $boletoGanador);
-            $sql4 = $pdo1->prepare("UPDATE premios SET cantidad = " . $dinero . " WHERE boleto = ". $boletoComprado ."");
+            $sql4 = $pdo->prepare("UPDATE premios SET cantidad = " . $dinero . " WHERE boleto = ". $boletoComprado ."");
             $sql4->execute();
             $sql4->setFetchMode(PDO::FETCH_ASSOC);
             $resultado4 = $sql4->fetchAll();
     }
 
-            //Select para sacar las fechas que son iguales en el sorteo
-            $sql = $pdo1->prepare("SELECT almacenarboleto.fecha FROM almacenarboleto INNER JOIN almacenarganador ON almacenarboleto.fecha = almacenarganador.fecha");
-            $sql->execute();
-            $sql->setFetchMode(PDO::FETCH_ASSOC);
-            $resultado = $sql->fetchAll();
 
 
             //Select para mostrar la tablas de premios por pantalla
-            $sql1 = $pdo1->prepare("SELECT * FROM premios");
+            $sql1 = $pdo->prepare("SELECT * FROM premios");
             $sql1->execute();
             $sql1->setFetchMode(PDO::FETCH_ASSOC);
             $resultado1 = $sql1->fetchAll();
