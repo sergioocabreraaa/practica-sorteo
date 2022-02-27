@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-02-2022 a las 17:19:22
--- Versión del servidor: 10.4.19-MariaDB
--- Versión de PHP: 7.4.20
+-- Tiempo de generación: 27-02-2022 a las 16:29:07
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `almacenarboleto` (
-  `boletoComprado` int(11) NOT NULL,
+  `boletoComprado` int(5) NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -39,7 +39,7 @@ CREATE TABLE `almacenarboleto` (
 --
 
 CREATE TABLE `almacenarganador` (
-  `boletoGanador` int(11) NOT NULL,
+  `boletoGanador` int(5) NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -51,7 +51,7 @@ CREATE TABLE `almacenarganador` (
 
 CREATE TABLE `premios` (
   `fecha` date NOT NULL,
-  `boleto` int(11) NOT NULL,
+  `boleto` int(5) NOT NULL,
   `cantidad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
